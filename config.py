@@ -7,6 +7,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     SQLALCHEMY_DATABASE_URI = getenv("DB_URI_DEV")
+    JSON_SORT_KEYS = False
 
 
 class ProductionConfig(Config):
@@ -21,4 +22,6 @@ config_selector = {
     "development": DevelopmentConfig,
     "production": ProductionConfig,
     "test": TestConfig,
+
+
 }

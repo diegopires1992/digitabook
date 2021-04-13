@@ -2,4 +2,5 @@ from flask import Flask
 
 
 def init_app(app: Flask):
-    pass
+    from app.views.authors_view import bp_authors
+    app.register_blueprint(bp_authors)
