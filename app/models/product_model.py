@@ -15,3 +15,10 @@ class ProductModel(db.Model):
     description = db.Column(db.String, nullable=True)
     price = db.Column(db.Float, nullable=False)
     image_url = db.Column(db.String, nullable=True)
+
+    author_list = db.relationship(
+        'AuthorModel', backref=db.backref(
+            'authors',
+            lazy='joined',
+        )
+    )
