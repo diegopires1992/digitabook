@@ -7,3 +7,6 @@ db = SQLAlchemy()
 def init_app(app: Flask):
     db.init_app(app)
     app.db = db
+
+    #importing user database
+    from app.models.user_model import UserModel
