@@ -21,7 +21,7 @@ def delete_user(id):
     session = current_app.db.session
 
     found_user: UserModel = UserModel.query.get_or_404(id)
-    
+
     print(found_user.__dict__)
 
     session.delete(found_user)
@@ -39,14 +39,72 @@ def create_user():
     profile = UserModel(
         name=data["name"],
         email=data["email"],
-        password=data["password"],
         cpf=data["cpf"],
         phone=data["phone"],
     )
 
+    profile.password = data["password"]
+
     session.add(profile)
     session.commit()
 
-    # serializer = BandProfileSerializer(data['band_id'])
+    return {"user": profile.name, "email": profile.email},HTTPStatus.CREATED
 
-    return "user created"
+@bp_user.route("/login", methods=["POST"])
+def login_user():
+
+    data = request.get_json()
+
+    email = data.get("email")
+    password = data.get("password")
+
+    found_user:UserModel = UserModel.query.filter_by(email = email).first()
+
+    if not found_user or not found_user.check_password(password):
+        return {"msg": "Usuario ou senha incorretos"}, HTTPStatus.NOT_FOUND
+
+    return "user logado"    
+
+
+@bp_user.route("/edit/<int:id>", methods=["PUT"])
+def edit_user(id):
+
+    session = current_app.db.session
+    
+    data = request.get_json()
+    edited_profile: UserModel = UserModel.query.get_or_404(id)
+    
+    
+    edited_profile.name = data["name"]
+    edited_profile.email = data["email"]
+    edited_profile.cpf = data["cpf"]
+    edited_profile.phone = data["phone"]
+    edited_profile.password = data["password"]
+    
+    print(data)
+
+    session.add(edited_profile)
+    session.commit()
+
+        
+    return {"user": edited_profile.name, "email": edited_profile.email},HTTPStatus.OK
+
+
+@bp_user.route("/edit/<int:id>", methods=["PATCH"])
+def patch_user(id):
+
+    session = current_app.db.session
+    found_user: UserModel = UserModel.query.get(id)
+    data = request.get_json()
+
+    try:
+        for key, value in data.items():
+            setattr(found_user, key, value)
+        session.add(found_user)
+        session.commit()
+
+        return {"user": found_user.name, "email": found_user.email},HTTPStatus.OK
+    except Exception as nome:
+        return "test",HTTPStatus.BAD_REQUEST
+           
+    
