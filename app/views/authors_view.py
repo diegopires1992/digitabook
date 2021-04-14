@@ -47,14 +47,26 @@ def create_author():
 
 @bp_authors.route("/<int:id>", methods=["GET"])
 def get_author_by_id(id):
-    session = current_app.db.session
-
     author_id = id
 
-    found_author = AuthorModel.query.filter_by(id=author_id).first()
+    found_author = AuthorModel.query.get(id)
 
     return {
         "id": found_author.id,
         "name": found_author.name,
         "birthplace": found_author.birthplace
     }
+
+
+@bp_authors.route("/<int:id>", methods=["DELETE"])
+def delete_author(id):
+    session = current_app.db.session
+
+    author_id = id
+
+    found_author = AuthorModel.query.get(id)
+
+    session.delete(found_author)
+    session.commit()
+
+    return {}, HTTPStatus.NO_CONTENT
