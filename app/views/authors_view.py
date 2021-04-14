@@ -1,7 +1,6 @@
 from flask import Blueprint, request, current_app, jsonify
 from http import HTTPStatus
 from app.models.authors_model import AuthorModel
-from json import dumps
 
 bp_authors = Blueprint('bp_authors', __name__, url_prefix='/author')
 
@@ -47,7 +46,7 @@ def create_author():
 
 @bp_authors.route("/<int:id>", methods=["GET"])
 def get_author_by_id(id):
-    author_id = id
+    authors_id = id
 
     found_author = AuthorModel.query.get(id)
 
