@@ -46,7 +46,6 @@ def create_author():
 
 @bp_authors.route("/<int:id>", methods=["GET"])
 def get_author_by_id(id):
-    session = current_app.db.session
 
     author_id = id
 

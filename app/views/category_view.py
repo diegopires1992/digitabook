@@ -25,14 +25,27 @@ def create_category():
 
 
 
-# @bp_category.route('/', method=['GET'])
-# def get_category():
-#     session = current_app.db.session
+@bp_category.route('/', methods=['GET'])
+def get_category():
+    session = current_app.db.session
 
-#     categories_list = [
-#         {
-
-#         }
-#     ]
+    categories_list = [
+        {
+            'id': category.id,
+            'name': category.name
+        }
+        for category in session.query(CategoryModel).all()
+    ]
     
-#     pass
+    return jsonify(categories_list), HTTPStatus.OK
+
+
+
+@bp_category.route("/<int:id>", methods=['GET'])
+def get_id_category(id):
+    category = CategoryModel.query.filter_by(id =id).first()
+    
+    return {
+        'id': category.id,
+        'name': category.name
+    }
