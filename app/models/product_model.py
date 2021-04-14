@@ -18,7 +18,8 @@ class ProductModel(db.Model):
 
     author_list = db.relationship(
         'AuthorModel', backref=db.backref(
-            'authors',
+            'products_list',
             lazy='joined',
-        )
+        ), secondary='authors_products' 
     )
+
