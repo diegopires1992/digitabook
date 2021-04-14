@@ -22,6 +22,4 @@ config_selector = {
     "development": DevelopmentConfig,
     "production": ProductionConfig,
     "test": TestConfig,
-
-
 }

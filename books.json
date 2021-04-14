@@ -1,0 +1,347 @@
+{
+  "books": [
+    {
+      "title": "Practical MongoDB",
+      "subtitle": "Architecting, Developing, and Administering MongoDB",
+      "isbn13": "9781484206485",
+      "price": "41.65",
+      "image": "https://itbook.store/img/books/9781484206485.png"
+    },
+    {
+      "title": "The Definitive Guide to MongoDB, 3rd Edition",
+      "subtitle": "A complete guide to dealing with Big Data using MongoDB",
+      "isbn13": "9781484211830",
+      "price": "49.99",
+      "image": "https://itbook.store/img/books/9781484211830.png"
+    },
+    {
+      "title": "MongoDB in Action, 2nd Edition",
+      "subtitle": "Covers MongoDB version 3.0",
+      "isbn13": "9781617291609",
+      "price": "19.99",
+      "image": "https://itbook.store/img/books/9781617291609.png"
+    },
+    {
+      "title": "Pentaho Analytics for MongoDB",
+      "subtitle": "Combine Pentaho Analytics and MongoDB to create powerful analysis and reporting solutions",
+      "isbn13": "9781782168355",
+      "price": "16.99",
+      "image": "https://itbook.store/img/books/9781782168355.png"
+    },
+    {
+      "title": "Pentaho Analytics for MongoDB Cookbook",
+      "subtitle": "Over 50 recipes to learn how to use Pentaho Analytics and MongoDB to create powerful analysis and reporting solutions",
+      "isbn13": "9781783553273",
+      "price": "35.99",
+      "image": "https://itbook.store/img/books/9781783553273.png"
+    },
+    {
+      "title": "Web Development with MongoDB and NodeJS, 2nd Edition",
+      "subtitle": "Build an interactive and full-featured web application from scratch using Node.js and MongoDB",
+      "isbn13": "9781785287527",
+      "price": "38.01",
+      "image": "https://itbook.store/img/books/9781785287527.png"
+    },
+    {
+      "title": "MongoDB Cookbook, 2nd Edition",
+      "subtitle": "Harness the latest features of MongoDB 3 with this collection of 80 recipes - from managing cloud platforms to app development, this book is a vital resource",
+      "isbn13": "9781785289989",
+      "price": "44.99",
+      "image": "https://itbook.store/img/books/9781785289989.png"
+    },
+    {
+      "title": "The Little MongoDB Book",
+      "subtitle": "",
+      "isbn13": "1001592208320",
+      "price": "0.00",
+      "image": "https://itbook.store/img/books/1001592208320.png"
+    },
+    {
+      "title": "Node.js, MongoDB and Angular Web Development, 2nd Edition",
+      "subtitle": "The definitive guide to using the MEAN stack to build web applications",
+      "isbn13": "9780134655536",
+      "price": "33.16",
+      "image": "https://itbook.store/img/books/9780134655536.png"
+    },
+    {
+      "title": "The Definitive Guide to MongoDB",
+      "subtitle": "The NoSQL Database for Cloud and Desktop Computing",
+      "isbn13": "9781430230519",
+      "price": "39.99",
+      "image": "https://itbook.store/img/books/9781430230519.png"
+    },
+    {
+      "title": "Instant Flask Web Development",
+      "subtitle": "Tap into Flask to build a complete application in a style that you control",
+      "isbn13": "9781782169628",
+      "price": "12.99",
+      "image": "https://itbook.store/img/books/9781782169628.png"
+    },
+    {
+      "title": "Learning Flask Framework",
+      "subtitle": "Build dynamic, data-driven websites and modern web applications with Flask",
+      "isbn13": "9781783983360",
+      "price": "35.99",
+      "image": "https://itbook.store/img/books/9781783983360.png"
+    },
+    {
+      "title": "Flask Framework Cookbook",
+      "subtitle": "Over 80 hands-on recipes to help you create small-to-large web applications using Flask",
+      "isbn13": "9781783983407",
+      "price": "26.99",
+      "image": "https://itbook.store/img/books/9781783983407.png"
+    },
+    {
+      "title": "Flask Blueprints",
+      "subtitle": "Dive into the world of the Flask microframework to develop an array of web applications",
+      "isbn13": "9781784394783",
+      "price": "35.99",
+      "image": "https://itbook.store/img/books/9781784394783.png"
+    },
+    {
+      "title": "Building Web Applications with Flask",
+      "subtitle": "Use Python and Flask to build amazing web applications, just the way you want them!",
+      "isbn13": "9781784396152",
+      "price": "27.99",
+      "image": "https://itbook.store/img/books/9781784396152.png"
+    },
+    {
+      "title": "Flask By Example",
+      "subtitle": "Unleash the full potential of the Flask web framework by creating simple yet powerful web applications",
+      "isbn13": "9781785286933",
+      "price": "27.99",
+      "image": "https://itbook.store/img/books/9781785286933.png"
+    },
+    {
+      "title": "Flask Web Development",
+      "subtitle": "Developing Web Applications with Python",
+      "isbn13": "9781449372620",
+      "price": "14.00",
+      "image": "https://itbook.store/img/books/9781449372620.png"
+    },
+    {
+      "title": "Flask Web Development, 2nd Edition",
+      "subtitle": "Developing Web Applications with Python",
+      "isbn13": "9781491991732",
+      "price": "28.99",
+      "image": "https://itbook.store/img/books/9781491991732.png"
+    },
+    {
+      "title": "Building Web Applications with Python and Neo4j",
+      "subtitle": "Develop exciting real-world Python-based web applications with Neo4j using frameworks such as Flask, Py2neo, and Django",
+      "isbn13": "9781783983988",
+      "price": "27.99",
+      "image": "https://itbook.store/img/books/9781783983988.png"
+    },
+    {
+      "title": "Mastering Flask Web Development, 2nd Edition",
+      "subtitle": "Build enterprise-grade, scalable Python web applications",
+      "isbn13": "9781788995405",
+      "price": "39.99",
+      "image": "https://itbook.store/img/books/9781788995405.png"
+    },
+    {
+      "title": "Developing Turn-Based Multiplayer Games",
+      "subtitle": "with GameMaker Studio 2 and NodeJS",
+      "isbn13": "9781484238608",
+      "price": "25.82",
+      "image": "https://itbook.store/img/books/9781484238608.png"
+    },
+    {
+      "title": "Building Tools with GitHub",
+      "subtitle": "Customize Your Workflow",
+      "isbn13": "9781491933503",
+      "price": "14.97",
+      "image": "https://itbook.store/img/books/9781491933503.png"
+    },
+    {
+      "title": "Design and Build Great Web APIs",
+      "subtitle": "Robust, Reliable, and Resilient",
+      "isbn13": "9781680506808",
+      "price": "22.17",
+      "image": "https://itbook.store/img/books/9781680506808.png"
+    },
+    {
+      "title": "Web Development with MongoDB and NodeJS, 2nd Edition",
+      "subtitle": "Build an interactive and full-featured web application from scratch using Node.js and MongoDB",
+      "isbn13": "9781785287527",
+      "price": "38.01",
+      "image": "https://itbook.store/img/books/9781785287527.png"
+    },
+    {
+      "title": "Voice User Interface Projects",
+      "subtitle": "Build voice-enabled applications using Dialogflow for Google Home and Alexa Skills Kit for Amazon Echo",
+      "isbn13": "9781788473354",
+      "price": "39.99",
+      "image": "https://itbook.store/img/books/9781788473354.png"
+    },
+    {
+      "title": "Coffee Break Python Slicing",
+      "subtitle": "24 Workouts to Master Slicing in Python, Once and for All",
+      "isbn13": "1001605784161",
+      "price": "0.00",
+      "image": "https://itbook.store/img/books/1001605784161.png"
+    },
+    {
+      "title": "Learn More Python 3 the Hard Way",
+      "subtitle": "The Next Step for New Python Programmers",
+      "isbn13": "9780134123486",
+      "price": "23.22",
+      "image": "https://itbook.store/img/books/9780134123486.png"
+    },
+    {
+      "title": "Programming in Python 3, 2nd Edition",
+      "subtitle": "A Complete Introduction to the Python Language",
+      "isbn13": "9780321680563",
+      "price": "33.54",
+      "image": "https://itbook.store/img/books/9780321680563.png"
+    },
+    {
+      "title": "Beginning Python",
+      "subtitle": "Using Python 2.6 and Python 3.1",
+      "isbn13": "9780470414637",
+      "price": "7.99",
+      "image": "https://itbook.store/img/books/9780470414637.png"
+    },
+    {
+      "title": "Python Cookbook, 2nd Edition",
+      "subtitle": "Recipes from the Python Community",
+      "isbn13": "9780596007973",
+      "price": "6.38",
+      "image": "https://itbook.store/img/books/9780596007973.png"
+    },
+    {
+      "title": "Python Pocket Reference, 4th Edition",
+      "subtitle": "Python in Your Pocket",
+      "isbn13": "9780596158088",
+      "price": "4.21",
+      "image": "https://itbook.store/img/books/9780596158088.png"
+    },
+    {
+      "title": "Python for Unix and Linux System Administration",
+      "subtitle": "Efficient Problem Solving with Python",
+      "isbn13": "9780596515829",
+      "price": "39.99",
+      "image": "https://itbook.store/img/books/9780596515829.png"
+    },
+    {
+      "title": "Foundations of Python Network Programming, 2nd Edition",
+      "subtitle": "The comprehensive guide to building network applications with Python",
+      "isbn13": "9781430230038",
+      "price": "39.99",
+      "image": "https://itbook.store/img/books/9781430230038.png"
+    },
+    {
+      "title": "Python Algorithms",
+      "subtitle": "Mastering Basic Algorithms in the Python Language",
+      "isbn13": "9781430232377",
+      "price": "18.00",
+      "image": "https://itbook.store/img/books/9781430232377.png"
+    },
+    {
+      "title": "Python and AWS Cookbook",
+      "subtitle": "Managing Your Cloud with Python and Boto",
+      "isbn13": "9781449305444",
+      "price": "12.99",
+      "image": "https://itbook.store/img/books/9781449305444.png"
+    },
+    {
+      "title": "Reintroducing React",
+      "subtitle": "Modern React with Every React Update Since v16 Demystified (includes advanced hooks)",
+      "isbn13": "1001592396277",
+      "price": "0.00",
+      "image": "https://itbook.store/img/books/1001592396277.png"
+    },
+    {
+      "title": "Learning React, 2nd Edition",
+      "subtitle": "A Hands-On Guide to Building Web Applications Using React and Redux",
+      "isbn13": "9780134843551",
+      "price": "21.63",
+      "image": "https://itbook.store/img/books/9780134843551.png"
+    },
+    {
+      "title": "Pro React",
+      "subtitle": "Build complex front-end applications in a composable way with React",
+      "isbn13": "9781484212615",
+      "price": "13.77",
+      "image": "https://itbook.store/img/books/9781484212615.png"
+    },
+    {
+      "title": "React Native for iOS Development",
+      "subtitle": "Harness the power of React and JavaScript to build stunning iOS applications",
+      "isbn13": "9781484213964",
+      "price": "33.26",
+      "image": "https://itbook.store/img/books/9781484213964.png"
+    },
+    {
+      "title": "Front-End Reactive Architectures",
+      "subtitle": "Explore the Future of the Front-End using Reactive JavaScript Frameworks and Libraries",
+      "isbn13": "9781484231791",
+      "price": "26.32",
+      "image": "https://itbook.store/img/books/9781484231791.png"
+    },
+    {
+      "title": "Practical React Native",
+      "subtitle": "Build Two Full Projects and One Full Game using React Native",
+      "isbn13": "9781484239384",
+      "price": "26.09",
+      "image": "https://itbook.store/img/books/9781484239384.png"
+    },
+    {
+      "title": "Reactive Streams in Java",
+      "subtitle": "Concurrency with RxJava, Reactor, and Akka Streams",
+      "isbn13": "9781484241752",
+      "price": "26.03",
+      "image": "https://itbook.store/img/books/9781484241752.png"
+    },
+    {
+      "title": "Building React Apps with Server-Side Rendering",
+      "subtitle": "Use React, Redux, and Next to Build Full Server-Side Rendering Applications",
+      "isbn13": "9781484258682",
+      "price": "27.75",
+      "image": "https://itbook.store/img/books/9781484258682.png"
+    },
+    {
+      "title": "Learning React",
+      "subtitle": "Functional Web Development with React and Redux",
+      "isbn13": "9781491954621",
+      "price": "19.95",
+      "image": "https://itbook.store/img/books/9781491954621.png"
+    },
+    {
+      "title": "React Quickly",
+      "subtitle": "Painless web apps with React, JSX, Redux, and GraphQL",
+      "isbn13": "9781617293344",
+      "price": "36.99",
+      "image": "https://itbook.store/img/books/9781617293344.png"
+    },
+    {
+      "title": "Essential SQLAlchemy",
+      "subtitle": "Mapping Python to Databases",
+      "isbn13": "9780596516147",
+      "price": "14.01",
+      "image": "https://itbook.store/img/books/9780596516147.png"
+    },
+    {
+      "title": "Essential SQLAlchemy, 2nd Edition",
+      "subtitle": "Mapping Python to Databases",
+      "isbn13": "9781491916469",
+      "price": "29.44",
+      "image": "https://itbook.store/img/books/9781491916469.png"
+    },
+    {
+      "title": "Flask Blueprints",
+      "subtitle": "Dive into the world of the Flask microframework to develop an array of web applications",
+      "isbn13": "9781784394783",
+      "price": "35.99",
+      "image": "https://itbook.store/img/books/9781784394783.png"
+    },
+    {
+      "title": "Python Interviews",
+      "subtitle": "Discussions with Python Experts",
+      "isbn13": "9781788399081",
+      "price": "27.99",
+      "image": "https://itbook.store/img/books/9781788399081.png"
+    }
+  ]
+}
