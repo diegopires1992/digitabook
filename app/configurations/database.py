@@ -8,5 +8,5 @@ def init_app(app: Flask):
     db.init_app(app)
     app.db = db
 
-    from app.models.authors_model import AuthorModel
-    from app.models.category_model import CategoryModel
+    #importing user database
+    from app.models.user_model import UserModel
