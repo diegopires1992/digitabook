@@ -1,7 +1,6 @@
 from flask import Blueprint, request, current_app, jsonify
 from http import HTTPStatus
 from app.models.authors_model import AuthorModel
-from json import dumps
 
 bp_authors = Blueprint('bp_authors', __name__, url_prefix='/author')
 
