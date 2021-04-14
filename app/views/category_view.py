@@ -1,4 +1,5 @@
 from flask.globals import session
+from app.models import category_model
 from app.models.category_model import CategoryModel
 from flask import request, Blueprint, jsonify, current_app
 from http import HTTPStatus
@@ -43,9 +44,16 @@ def get_category():
 
 @bp_category.route("/<int:id>", methods=['GET'])
 def get_id_category(id):
-    category = CategoryModel.query.filter_by(id =id).first()
-    
+    category = CategoryModel.query.get(id)   
     return {
         'id': category.id,
         'name': category.name
     }
+
+@bp_category.route("/<int:id>", methods=['DELETE'])
+def delete_category(id):
+    session = current_app.db.session
+    category_filter = CategoryModel.query.get(id)
+    session.delete(category_filter)
+    session.commit()
+    return {},HTTPStatus.NO_CONTENT
