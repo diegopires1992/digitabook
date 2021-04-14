@@ -2,7 +2,7 @@ from flask import Flask
 from os import getenv
 
 from config import config_selector
-from app.configurations import database, migration
+from app.configurations import database, migration, authentication
 from app import views
 
 
@@ -14,6 +14,7 @@ def create_app():
 
     database.init_app(app)
     migration.init_app(app)
+    authentication.init_app(app)
     views.init_app(app)
 
     return app
