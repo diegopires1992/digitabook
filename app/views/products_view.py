@@ -22,7 +22,7 @@ def delete_product_by_id(product_id):
     return ProductServices.delete_product(product_id)
 
 
-@bp_products.route('/<int:product_id>', methods=['PATCH'])
+@bp_products.route('/<int:product_id>', methods=['PATCH', 'PUT'])
 def patch_product(product_id):
     data = request.get_json()
     return ProductServices.patch_product(product_id, data)
