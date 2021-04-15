@@ -6,26 +6,24 @@ from . import ProductModel
 
 
 class ProductServices:
+    def __init__(self, session):
+        self.session = session
 
-    @staticmethod
-    def create_book(book: ProductModel, author: AuthorModel):
-        
-        session = current_app.db.session
-        
+
+    def create_book(self, book: ProductModel, author: AuthorModel):
         new_book = ProductModel(**book)
         new_book.author_list.append(author)
         
-        session.add(new_book)
-        session.commit()
+        self.session.add(new_book)
+        self.session.commit()
 
         return True
 
-    @staticmethod
-    def get_all_products():
-        session = current_app.db.session
-        products = ProductModel.query.all()
-        session.commit()
 
+    def get_all_products(self):
+        print("Aooow!")
+        products = ProductModel.query.all()
+        print("Aooow!2")
         return {
             'products': [{
                 'id':product.id,
@@ -43,11 +41,9 @@ class ProductServices:
             ]
         }
 
-    @staticmethod
-    def get_product_by_id(product_id):
-        session = current_app.db.session
+
+    def get_product_by_id(self, product_id):
         found_product: ProductModel = ProductModel.query.get(product_id)
-        session.commit()
 
         if not found_product:
             response = {
@@ -66,10 +62,8 @@ class ProductServices:
 
         return response
 
-    @staticmethod
-    def delete_product(product_id):
-        session = current_app.db.session
 
+    def delete_product(self, product_id):
         product_to_delete: ProductModel = ProductModel.query.get(product_id)
 
         if not product_to_delete:
@@ -78,16 +72,15 @@ class ProductServices:
             }, HTTPStatus.NOT_FOUND
 
         else:
-            deleted = session.delete(product_to_delete)
-            session.commit()
+            deleted = self.session.delete(product_to_delete)
+            self.session.commit()
 
             response = {}, HTTPStatus.NO_CONTENT
 
         return response
 
-    @staticmethod
-    def patch_product(product_id, data):
-        session = current_app.db.session
+
+    def patch_product(self, product_id, data):
         found_product: ProductModel = ProductModel.query.get(product_id)
         acepted_values = ('title', 'subtitle', 'price', 'image',)
 
@@ -106,8 +99,8 @@ class ProductServices:
                 'image_url': found_product.image
             }, HTTPStatus.OK
 
-            session.add(found_product)
-            session.commit()
+            self.session.add(found_product)
+            self.session.commit()
 
 
         except Exception as exception:
