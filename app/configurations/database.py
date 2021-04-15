@@ -12,3 +12,4 @@ def init_app(app: Flask):
     from app.models.category_model import CategoryModel
     from app.models.authors_products_model import AuthorsProducts
     from app.models.product_model import ProductModel
+    from app.models.user_model import UserModel
