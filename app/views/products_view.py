@@ -4,7 +4,6 @@ from app.models.product_model import ProductModel
 from app.models.authors_model import AuthorModel
 from sqlalchemy import update
 from app.services.products_services import ProductServices
-import ipdb
 
 bp_products = Blueprint('products_view', __name__, url_prefix='/products')
 
@@ -13,20 +12,27 @@ def get_products():
     return ProductServices.get_all_products(), HTTPStatus.OK
 
 
-@bp_products.route('/<int:id_prod>', methods=['GET'])
-def get_products_id(id_prod):
+@bp_products.route('/<int:product_id>', methods=['GET'])
+def get_products_id(product_id):
     
-    session = current_app.db.session
-    found_product: ProductModel = ProductModel.query.get(id_prod)
-    session.commit()
+    found_product: ProductModel = ProductServices.get_product_by_id(product_id)
 
-    return {'id': found_product.id,
-            'title': found_product.title,
-            'subtitle': found_product.subtitle,
-            'isbn13': found_product.isbn13,
-            'price': found_product.price,
-            'image_url': found_product.image
-        }, HTTPStatus.OK
+    if not found_product:
+        response = {
+            'Message': 'Product not found'
+        }, HTTPStatus.UNPROCESSABLE_ENTITY
+    
+    else:
+        response = {
+        'id': found_product.id,
+        'title': found_product.title,
+        'subtitle': found_product.subtitle,
+        'isbn13': found_product.isbn13,
+        'price': found_product.price,
+        'image_url': found_product.image
+    }, HTTPStatus.OK
+    
+    return response
 
 @bp_products.route('/<int:id_prod>', methods=['DELETE'])
 def delete_products_id(id_prod):
