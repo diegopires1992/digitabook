@@ -65,3 +65,22 @@ class ProductServices:
         }, HTTPStatus.OK
 
         return response
+
+    @staticmethod
+    def delete_product(product_id):
+        session = current_app.db.session
+
+        product_to_delete: ProductModel = ProductModel.query.get(product_id)
+
+        if not product_to_delete:
+            response = {
+                'Message': 'Product not Found'
+            }, HTTPStatus.NOT_FOUND
+
+        else:
+            deleted = session.delete(product_to_delete)
+            session.commit()
+
+            response = {}, HTTPStatus.NO_CONTENT
+
+        return response

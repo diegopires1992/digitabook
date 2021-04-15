@@ -17,17 +17,9 @@ def get_products_id(product_id):
     return ProductServices.get_product_by_id(product_id)
 
 
-@bp_products.route('/<int:id_prod>', methods=['DELETE'])
-def delete_products_id(id_prod):
-    
-    session = current_app.db.session
-    try:
-        product_to_delete: ProductModel = ProductModel.query.get(id_prod)
-        deleted = current_app.db.session.delete(product_to_delete)
-    except:
-        return {'result': 'Not Found'},HTTPStatus.NOT_FOUND
-    session.commit()
-    return {'data':'deleted'}, HTTPStatus.OK
+@bp_products.route('/<int:product_id>', methods=['DELETE'])
+def delete_products_id(product_id):
+    return ProductServices.delete_product(product_id)
 
 
 @bp_products.route('/<int:id_prod>', methods=['PATCH'])
