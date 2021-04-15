@@ -14,25 +14,8 @@ def get_products():
 
 @bp_products.route('/<int:product_id>', methods=['GET'])
 def get_products_id(product_id):
-    
-    found_product: ProductModel = ProductServices.get_product_by_id(product_id)
+    return ProductServices.get_product_by_id(product_id)
 
-    if not found_product:
-        response = {
-            'Message': 'Product not found'
-        }, HTTPStatus.UNPROCESSABLE_ENTITY
-    
-    else:
-        response = {
-        'id': found_product.id,
-        'title': found_product.title,
-        'subtitle': found_product.subtitle,
-        'isbn13': found_product.isbn13,
-        'price': found_product.price,
-        'image_url': found_product.image
-    }, HTTPStatus.OK
-    
-    return response
 
 @bp_products.route('/<int:id_prod>', methods=['DELETE'])
 def delete_products_id(id_prod):
