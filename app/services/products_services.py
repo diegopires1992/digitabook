@@ -1,4 +1,5 @@
 from flask import Flask, current_app
+from http import HTTPStatus
 from . import AuthorModel
 from . import AuthorsProducts 
 from . import ProductModel
@@ -17,9 +18,10 @@ class ProductServices:
         session.add(new_book)
         session.commit()
 
+        return True
+
     @staticmethod
     def get_all_products():
-        
         session = current_app.db.session
         products = ProductModel.query.all()
         session.commit()
@@ -40,3 +42,26 @@ class ProductServices:
                 ]} for product in products
             ]
         }
+
+    @staticmethod
+    def get_product_by_id(product_id):
+        session = current_app.db.session
+        found_product: ProductModel = ProductModel.query.get(product_id)
+        session.commit()
+
+        if not found_product:
+            response = {
+                'Message': 'Product not found'
+            }, HTTPStatus.UNPROCESSABLE_ENTITY
+
+        else:
+            response = {
+            'id': found_product.id,
+            'title': found_product.title,
+            'subtitle': found_product.subtitle,
+            'isbn13': found_product.isbn13,
+            'price': found_product.price,
+            'image_url': found_product.image
+        }, HTTPStatus.OK
+
+        return response
