@@ -84,3 +84,35 @@ class ProductServices:
             response = {}, HTTPStatus.NO_CONTENT
 
         return response
+
+    @staticmethod
+    def patch_product(product_id, data):
+        session = current_app.db.session
+        found_product: ProductModel = ProductModel.query.get(product_id)
+        acepted_values = ('title', 'subtitle', 'price', 'image',)
+
+        try:
+            if any(received_values not in acepted_values for received_values in data.keys()):
+                raise Exception("Invalid keys")
+
+            for key, value in data.items():
+                setattr(found_product, key, value)
+
+            response = {
+                'title': found_product.title, 
+                'subtitle': found_product.subtitle,
+                'isbn13': found_product.isbn13,
+                'price': found_product.price,
+                'image_url': found_product.image
+            }, HTTPStatus.OK
+
+            session.add(found_product)
+            session.commit()
+
+
+        except Exception as exception:
+            response = {
+                'Error': exception.args
+            }, HTTPStatus.BAD_REQUEST
+
+        return response
