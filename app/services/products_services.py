@@ -20,10 +20,9 @@ class ProductServices:
         return True
 
 
-    def get_all_products(self):
-        print("Aooow!")
+    def get_all_products(self, request):
         products = ProductModel.query.all()
-        print("Aooow!2")
+
         return {
             'products': [{
                 'id':product.id,
@@ -39,7 +38,7 @@ class ProductServices:
                     } for author in product.author_list
                 ]} for product in products
             ]
-        }
+        }, HTTPStatus.OK
 
 
     def get_product_by_id(self, product_id):
