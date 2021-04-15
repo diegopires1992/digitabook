@@ -7,8 +7,6 @@ bp_authors = Blueprint('bp_authors', __name__, url_prefix='/author')
 
 @bp_authors.route('/', methods=["GET"])
 def get_authors():
-    session = current_app.db.session
-
     authors = [
         {
             "id": author.id,
@@ -16,45 +14,58 @@ def get_authors():
             "birthplace": author.birthplace
         }
 
-        for author in session.query(AuthorModel).all()
+        for author in AuthorModel.query.all()
     ]
 
-    return jsonify(authors), HTTPStatus.OK
+    return {
+        "authors": authors
+    }, HTTPStatus.OK
 
 
 @bp_authors.route('/', methods=["POST"])
 def create_author():
     session = current_app.db.session
 
-    body = request.get_json()
+    try:
 
-    name = body.get('name')
-    birthplace = body.get('birthplace')
+        body = request.get_json()
 
-    new_author = AuthorModel(name=name, birthplace=birthplace)
-    session.add(new_author)
-    session.commit()
+        name = body.get('name')
+        birthplace = body.get('birthplace')
 
-    return {
-        "author": {
-            "id": new_author.id,
-            "name": new_author.name,
-            "birthplace": new_author.birthplace
+        new_author = AuthorModel(name=name, birthplace=birthplace)
+        session.add(new_author)
+        session.commit()
+
+        return {
+            "author": {
+                "id": new_author.id,
+                "name": new_author.name,
+                "birthplace": new_author.birthplace
+            }
         }
-    }
+
+    except Exception:
+        return {"message": "Error"}, HTTPStatus.BAD_REQUEST
 
 
 @bp_authors.route("/<int:id>", methods=["GET"])
 def get_author_by_id(id):
     authors_id = id
 
-    found_author = AuthorModel.query.get(id)
+    try:
 
-    return {
-        "id": found_author.id,
-        "name": found_author.name,
-        "birthplace": found_author.birthplace
-    }
+        found_author = AuthorModel.query.get(id)
+
+        return {
+            "author": {
+                "id": found_author.id,
+                "name": found_author.name,
+                "birthplace": found_author.birthplace
+            }
+        }
+    except Exception:
+        return {"message": "author not found"}, HTTPStatus.BAD_REQUEST
 
 
 @bp_authors.route("/<int:id>", methods=["DELETE"])
@@ -63,9 +74,13 @@ def delete_author(id):
 
     author_id = id
 
-    found_author = AuthorModel.query.get(id)
+    try:
 
-    session.delete(found_author)
-    session.commit()
+        found_author = AuthorModel.query.get(id)
 
-    return {}, HTTPStatus.NO_CONTENT
+        session.delete(found_author)
+        session.commit()
+
+        return {"message": "deleted author"}, HTTPStatus.NO_CONTENT
+    except Exception:
+        return {"message": "author not found"}, HTTPStatus.BAD_REQUEST
