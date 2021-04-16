@@ -32,7 +32,7 @@ def init_app(app):
                     birthplace=fake.address()
                 )
 
-                ProductServices.create_book(book, new_author)
+                ProductServices(session).create_book(book, new_author)
 
     @cli_db_group.command('create')
     def cli_db_create_all():
