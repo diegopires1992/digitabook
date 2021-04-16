@@ -1,6 +1,5 @@
-from sqlalchemy.orm import backref
+from . import db, backref
 
-from . import db
 
 class ProductModel(db.Model):
     

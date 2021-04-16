@@ -16,10 +16,8 @@ def init_app(app):
     cli_db_group = AppGroup('database')
 
     @cli_db_group.command('create_books')
-    def cli_db_create_all():
+    def cli_db_create_all_books():
         print('*CREATING DATABASES IF NOT EXISTS*')
-
-        app.db.create_all()
 
         fake = Faker()
         session = app.db.session
@@ -34,7 +32,7 @@ def init_app(app):
                     birthplace=fake.address()
                 )
 
-                ProductServices.create_book(book, new_author)
+                ProductServices(session).create_book(book, new_author)
 
     @cli_db_group.command('create')
     def cli_db_create_all():
