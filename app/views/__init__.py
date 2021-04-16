@@ -1,4 +1,8 @@
-from flask import Flask
+from flask import Flask, Blueprint, request, current_app
+from app.models.product_model import ProductModel
+from app.models.authors_model import AuthorModel
+from sqlalchemy import update
+from app.services.products_services import ProductServices
 
 
 def init_app(app: Flask):
