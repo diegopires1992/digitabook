@@ -3,6 +3,8 @@ from app.models.product_model import ProductModel
 from app.models.authors_model import AuthorModel
 from sqlalchemy import update
 from app.services.products_services import ProductServices
+from app.services.authors_services import AuthorServices
+
 
 
 def init_app(app: Flask):

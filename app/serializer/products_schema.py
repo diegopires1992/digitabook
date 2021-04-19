@@ -6,22 +6,6 @@ from . import (
 )
 
 
-class AuthorSchema(marsh.SQLAlchemyAutoSchema):
-    class Meta:
-        model = AuthorModel
-        fields = (
-            'id',
-            'name',
-            'birthplace'
-        )
-        ordered = True
-        load_instance = True
-
-    id = marsh.auto_field()
-    name = marsh.auto_field()
-    birthplace = marsh.auto_field()
-
-
 class ProductAuthorSchema(marsh.SQLAlchemyAutoSchema):
     class Meta:
         model = ProductModel
