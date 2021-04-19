@@ -6,8 +6,11 @@ from json import loads
 
 
 @fixture
-def app():
-    return create_app
+def app_client():
+    application = create_app()
+    with application.test_client() as client:
+        with application.app_context() as app_context:
+            yield client
 
 
 @fixture

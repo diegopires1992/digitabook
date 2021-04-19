@@ -16,7 +16,8 @@ class ProductionConfig(Config):
 
 
 class TestConfig(Config):
-    pass
+    SQLALCHEMY_DATABASE_URI = getenv("DB_URI_DEV")
+    testing=True
 
 
 config_selector = {
