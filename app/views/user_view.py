@@ -73,8 +73,8 @@ def login_user():
 
         return {"token": access_token}
 
-    except Exception:
-        return "Erro no Login", HTTPStatus.BAD_REQUEST
+    except Exception as exception:
+        return exception.__class__.__name__, HTTPStatus.BAD_REQUEST
 
 
 @bp_user.route("/<int:id>", methods=["DELETE"])
