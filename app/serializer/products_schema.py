@@ -4,6 +4,7 @@ from . import (
     AuthorModel,
     fields
 )
+from app.serializer.authors_schema import AuthorSchema
 
 
 class ProductAuthorSchema(marsh.SQLAlchemyAutoSchema):
