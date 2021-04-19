@@ -46,7 +46,7 @@ def create_author():
         }
 
     except Exception:
-        return {"message": "Error"}, HTTPStatus.BAD_REQUEST
+        return {"message": "error when registering"}, HTTPStatus.BAD_REQUEST
 
 
 @bp_authors.route("/<int:id>", methods=["GET"])
