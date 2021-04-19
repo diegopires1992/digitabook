@@ -8,7 +8,7 @@ class Config:
 
 
 class DevelopmentConfig(Config):
-    SQLALCHEMY_DATABASE_URI = getenv("SQLALCHEMY_DATABASE_URI")
+    SQLALCHEMY_DATABASE_URI = getenv("DB_URI_DEV")
 
 
 class ProductionConfig(Config):

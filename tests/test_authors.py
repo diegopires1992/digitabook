@@ -4,6 +4,7 @@ from pytest import fixture
 from app import create_app
 from json import loads
 
+
 @fixture
 def app_client():
     application = create_app()
@@ -12,24 +13,41 @@ def app_client():
             yield client
 
 
-def test_post_author(app_client):
-    
-    response = app_client.get('/products/')
-    print(response.get_json())
-    
-    assert 1 == 2 
-    #expected == loads(response.get_data(as_text=True))
+@fixture
+def client(app: Flask):
+    return app.test_client()
 
 
-#def test_get_author(client):
-#    response = client.get('/authors')
-#    
-#    expected = [
-#        {
-#            "id": 1,
-#            "name": "Liev Tolstói",
-#            "birthplace": "09-09-1828"
-#        }
-#    ]
-#
-#    assert expected == loads(response.get_data(as_text=True))
+def test_post_author(client):
+    given = {
+        "author": {
+            "name": "Liev Tolstói",
+            "birthplace": "09-09-1828"
+        }
+    }
+
+    response = client.post('/authors/', json=given)
+
+    expected = {
+        "author": {
+            "id": 13,
+            "name": "Liev Tolstói",
+            "birthplace": "09-09-1828"
+        }
+    }
+
+    assert expected == loads(response.get_data(as_text=True))
+
+
+def test_get_author(client):
+    response = client.get('/authors')
+
+    expected = [
+        {
+            "id": 13,
+            "name": "Liev Tolstói",
+            "birthplace": "09-09-1828"
+        }
+    ]
+
+    assert expected == loads(response.get_data(as_text=True))
