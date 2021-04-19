@@ -14,3 +14,4 @@ def init_app(app: Flask):
     from app.models.product_model import ProductModel
     from app.models.user_model import UserModel
     from app.models.order_model import OrderModel
+    from app.models.order_procuct_model import OrderProducts
