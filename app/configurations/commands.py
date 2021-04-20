@@ -31,8 +31,10 @@ def init_app(app):
                     name=fake.name(),
                     birthplace=fake.address()
                 )
+                session.add(new_author)
+                session.commit()
 
-                ProductServices(session).create_book(book, new_author)
+                ProductServices(session).create_book(book, new_author.id)
 
     @cli_db_group.command('create')
     def cli_db_create_all():

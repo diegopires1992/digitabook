@@ -12,6 +12,9 @@ from flask import Blueprint, request, current_app, jsonify
 from http import HTTPStatus
 
 class AuthorServices:
+    """
+        Descrição de alto serviçes
+    """
     def __init__(self, session):
         self.session = session
 
