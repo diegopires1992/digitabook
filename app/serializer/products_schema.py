@@ -6,14 +6,16 @@ from . import (
 )
 from app.serializer.authors_schema import AuthorSchema
 
+from app.serializer.authors_schema import AuthorSchema
+
 
 class ProductAuthorSchema(marsh.SQLAlchemyAutoSchema):
     class Meta:
         model = ProductModel
         fields = (
-            'id', 
+            'id',
             'title',
-            'subtitle', 
+            'subtitle',
             'price',
             'isbn13',
             'image',
@@ -21,7 +23,7 @@ class ProductAuthorSchema(marsh.SQLAlchemyAutoSchema):
         )
         ordered = True
         load_instance = True
-    
+
     id = marsh.auto_field()
     title = marsh.auto_field()
     subtitle = marsh.auto_field()
@@ -32,8 +34,7 @@ class ProductAuthorSchema(marsh.SQLAlchemyAutoSchema):
     author_list = marsh.Nested(AuthorSchema(many=True))
 
     def product_not_found(self):
-        return { 'Message': 'Product not found' }
-
+        return {'Message': 'Product not found'}
 
     def author_not_found(self):
-        return { 'Message': 'Author not found' }
+        return {'Message': 'Author not found'}

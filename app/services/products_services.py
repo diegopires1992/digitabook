@@ -1,10 +1,10 @@
 from . import (
-    Flask, 
-    current_app, 
-    ProductAuthorSchema, 
-    HTTPStatus, 
-    AuthorModel, 
-    AuthorsProducts, 
+    Flask,
+    current_app,
+    ProductAuthorSchema,
+    HTTPStatus,
+    AuthorModel,
+    AuthorsProducts,
     ProductModel
 )
 
@@ -13,22 +13,21 @@ class ProductServices:
     def __init__(self, session):
         self.session = session
 
-
     def create_book(self, book, author_id):
-        
+
         author: AuthorModel = AuthorModel.query.get(author_id)
 
         required_values = (
             'title',
-            'subtitle', 
-            'price', 
-            'isbn13', 
+            'subtitle',
+            'price',
+            'isbn13',
             'image'
         )
 
         if not all(received_values in required_values for received_values in book.keys()):
             raise Exception("Invalid keys")
-        
+
         if author:
             new_book = ProductModel(**book)
             new_book.author_list.append(author)
@@ -37,10 +36,10 @@ class ProductServices:
             self.session.commit()
 
             response = ProductAuthorSchema().dump(new_book), HTTPStatus.CREATED
-        
+
         else:
             response = ProductAuthorSchema().author_not_found(), HTTPStatus.UNPROCESSABLE_ENTITY
-        
+
         return response
 
     def get_all_products(self, request):
@@ -48,7 +47,6 @@ class ProductServices:
         products_list = ProductAuthorSchema(many=True).dump(products)
 
         return {'products': products_list}, HTTPStatus.OK
-
 
     def get_product_by_id(self, product_id):
         found_product: ProductModel = ProductModel.query.get(product_id)
@@ -60,7 +58,6 @@ class ProductServices:
             response = ProductAuthorSchema().dump(found_product), HTTPStatus.OK
 
         return response
-
 
     def delete_product(self, product_id):
         product_to_delete: ProductModel = ProductModel.query.get(product_id)
@@ -75,7 +72,6 @@ class ProductServices:
             response = {}, HTTPStatus.NO_CONTENT
 
         return response
-
 
     def patch_product(self, product_id, data):
         found_product: ProductModel = ProductModel.query.get(product_id)

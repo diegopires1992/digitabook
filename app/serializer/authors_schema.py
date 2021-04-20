@@ -20,14 +20,11 @@ class AuthorSchema(marsh.SQLAlchemyAutoSchema):
     name = marsh.auto_field()
     birthplace = marsh.auto_field()
 
-
     def author_not_found(self):
-        return { 'Message': 'Author not found' }
-
+        return {'Message': 'Author not found'}
 
     def author_not_deleted(self):
-        return { 'Message': 'deleted not author' }
-
+        return {'Message': 'deleted not author'}
 
     def author_exists(self):
-        return {"message":"Author already exists"}
+        return {"message": "Author already exists"}
