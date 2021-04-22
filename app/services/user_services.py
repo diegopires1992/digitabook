@@ -60,7 +60,8 @@ class Userservices:
             user_create: UserModel = UserModel.query.get(profile.id)
             return {"user": UsersSchema().dump(user_create)}, HTTPStatus.CREATED
 
-        except Exception:
+        except Exception as teste:
+            print(teste)
             return "Erro ao Cadastrar", HTTPStatus.BAD_REQUEST
 
     def post_login_user(self, request):
