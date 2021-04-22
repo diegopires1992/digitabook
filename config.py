@@ -16,7 +16,7 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = getenv("DATABASE_URL")
 
-    
+
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = getenv("DB_URI_DEV")
@@ -24,7 +24,7 @@ class TestConfig(Config):
 
 
 config_selector = {
-    "development": "DevelopmentConfig",
-    "production": "ProductionConfig",
-    "test": "TestConfig",
+    "development": DevelopmentConfig,
+    "production": ProductionConfig,
+    "test": TestConfig,
 }

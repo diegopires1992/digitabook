@@ -1,1 +1,1 @@
-web: gunicorn -- --workers=2 --log-level=debug wsgi:application
+web: gunicorn --workers=3 --log-level=debug wsgi:application

@@ -10,8 +10,8 @@ from flask_cors import CORS
 def create_app(config):
     app = Flask(__name__)
     CORS(app)
-    CORS(app, resources={r"/api/*": {"origins": "*"}})
-    app.config.from_object(f'config.{config_selector[config]}')
+    # CORS(app, resources={r"/api/*": {"origins": "*"}})
+    app.config.from_object(config_selector[config])
     commands.init_app(app)
     database.init_app(app)
     migration.init_app(app)
