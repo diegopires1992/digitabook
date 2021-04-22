@@ -8,7 +8,7 @@ from . import (
 bp_products = Blueprint(
         'products_view', 
         __name__, 
-        url_prefix='/products'
+        url_prefix='/api/products'
     )
 
 @bp_products.route('/<int:author_id>', methods=['POST'])
