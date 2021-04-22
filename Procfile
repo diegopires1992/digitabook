@@ -1,1 +1,1 @@
-web:gunicorn -w 3 'wsgi:application'
+web: gunicorn -- --workers=2 --log-level=debug wsgi:application
