@@ -7,11 +7,10 @@ from app import views
 from flask_cors import CORS
 
 
-def create_app():
+def create_app(config):
     app = Flask(__name__)
     CORS(app)
-    config_type = getenv("FLASK_ENV")
-    app.config.from_object(config_selector[config_type])
+    app.config.from_object(f'config.{config_selector[config]}')
     commands.init_app(app)
     database.init_app(app)
     migration.init_app(app)
